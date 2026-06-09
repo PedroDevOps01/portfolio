@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pedro Gabriel — Currículo</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── SCREEN ── */
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #e8edf5;
+      color: #3d3d3d;
+      font-size: 11px;
+      line-height: 1.45;
+    }
+
+    .cv {
+      width: 794px;          /* A4 @ 96dpi */
+      min-height: 1123px;    /* A4 @ 96dpi */
+      margin: 32px auto;
+      background: #fff;
+      box-shadow: 0 6px 32px rgba(0,0,0,.22);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── HEADER ── */
+    .cv-header {
+      background: #374151;
+      color: #fff;
+      padding: 18px 24px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-shrink: 0;
+    }
+    .cv-header h1 {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -.4px;
+      line-height: 1.15;
+    }
+    .cv-header .role {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #bfdbfe;
+      margin-top: 3px;
+    }
+    .cv-header .contacts {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 2px;
+      font-size: 10px;
+      color: #dbeafe;
+    }
+    .cv-header .contacts a { color: #eff6ff; text-decoration: none; }
+
+    /* ── BODY ── */
+    .cv-body {
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      flex: 1;
+    }
+
+    /* ══ SIDEBAR ══ */
+    .sidebar {
+      background: #ffffff;
+      border-right: 1px solid #e2e8f0;
+      color: #1e293b;
+      padding: 12px 12px;
+    }
+    .s-block { margin-bottom: 9px; }
+    .s-block:last-child { margin-bottom: 0; }
+    .sidebar h3 {
+      font-size: 8.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      color: #374151;
+      margin-bottom: 5px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid #374151;
+    }
+
+    .pill-wrap { display: flex; flex-wrap: wrap; gap: 2px; }
+    .pill {
+      font-size: 10px;
+      padding: 1px 5px;
+      border-radius: 2px;
+      background: #eff6ff;
+      color: #374151;
+      border: 1px solid #bfdbfe;
+      white-space: nowrap;
+    }
+    .pill.hi { background: #dbeafe; color: #374151; border-color: #93c5fd; font-weight: 600; }
+
+    .edu-entry { margin-bottom: 6px; }
+    .edu-entry:last-child { margin-bottom: 0; }
+    .edu-entry .deg  { font-size: 10px; font-weight: 600; color: #1e293b; line-height: 1.25; }
+    .edu-entry .inst { font-size: 10px; color: #475569; margin-top: 1px; }
+    .edu-entry .yr   { font-size: 10px; color: #94a3b8; margin-top: 1px; }
+
+    .cert-list { list-style: none; }
+    .cert-list li {
+      font-size: 10px;
+      color: #374151;
+      padding: 1.5px 0;
+      border-bottom: 1px solid #374151;
+      line-height: 1.25;
+    }
+    .cert-list li:last-child { border-bottom: none; }
+
+    .soft-pill {
+      display: inline-block;
+      font-size: 10px;
+      padding: 1px 5px;
+      border-radius: 2px;
+      background: #eff6ff;
+      color: #374151;
+      border: 1px solid #bfdbfe;
+      margin: 1px 1px 0 0;
+    }
+
+    .lang-row { font-size: 10px; color: #374151; margin-bottom: 2px; }
+    .lang-row span { color: #64748b; font-size: 10px; }
+
+    /* ══ MAIN ══ */
+    .main { padding: 12px 18px; }
+
+    .m-section { margin-bottom: 9px; }
+    .m-section:last-child { margin-bottom: 0; }
+
+    .m-title {
+      font-size: 8.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      color: #374151;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .m-title::after { content: ''; flex: 1; height: 1px; background: #bfdbfe; }
+
+    .profile-text { font-size: 12.5px; color: #374151; line-height: 1.6; }
+
+    /* experience */
+    .job { margin-bottom: 6px; }
+    .job:last-child { margin-bottom: 0; }
+    .job-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: nowrap;
+      gap: 4px;
+      margin-bottom: 1px;
+    }
+    .job-title   { font-size: 13.5px; font-weight: 700; color: #1e293b; }
+    .job-period  {
+      font-size: 11px; color: #fff; background: #374151;
+      padding: 1px 7px; border-radius: 3px; white-space: nowrap; flex-shrink: 0;
+    }
+    .job-company { font-size: 11.5px; color: #6b7280; margin-bottom: 3px; }
+    .job ul      { padding-left: 13px; }
+    .job ul li   { font-size: 12.5px; color: #374151; margin-bottom: 1.5px; line-height: 1.45; }
+
+    .divider { height: 1px; background: #dbeafe; margin: 5px 0; }
+
+    /* projects */
+    .project   { margin-bottom: 5px; }
+    .project:last-child { margin-bottom: 0; }
+    .proj-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: nowrap;
+      gap: 4px;
+      margin-bottom: 1px;
+    }
+    .proj-name  { font-size: 12.5px; font-weight: 700; color: #1e293b; white-space: nowrap; }
+    .proj-role  { font-size: 11px; color: #64748b; font-style: italic; white-space: nowrap; }
+    .proj-desc  { font-size: 12px; color: #4b5563; line-height: 1.45; margin-bottom: 2px; }
+    .tag-row    { display: flex; flex-wrap: wrap; gap: 2px; }
+    .t {
+      font-size: 8px; padding: 1px 4px; border-radius: 2px;
+      border: 1px solid #bfdbfe; background: #eff6ff; color: #374151; white-space: nowrap;
+    }
+    .t.d { background: #374151; color: #fff; border-color: #374151; }
+    .t.m { background: #dbeafe; color: #374151; border-color: #93c5fd; font-weight: 600; }
+
+    /* ── DOWNLOAD BTN (screen only) ── */
+    #btn-pdf {
+      position: fixed; bottom: 24px; right: 24px;
+      background: #374151; color: #fff; border: none;
+      padding: 10px 18px;
+      font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600;
+      border-radius: 5px; cursor: pointer;
+      box-shadow: 0 4px 18px rgba(0,0,0,.3);
+      display: flex; align-items: center; gap: 7px;
+      z-index: 999; transition: background .15s;
+    }
+    #btn-pdf:hover { background: #374151; }
+
+    /* ── PRINT ── */
+    @media print {
+      @page {
+        size: 210mm 297mm;
+        margin: 0;
+      }
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      html, body { background: white !important; margin: 0 !important; padding: 0 !important; }
+      .cv {
+        width: 210mm !important;
+        height: 297mm !important;
+        min-height: unset !important;
+        max-height: 297mm !important;
+        overflow: hidden !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+      }
+      #btn-pdf { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<button id="btn-pdf" onclick="window.print()">
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+    <polyline points="7 10 12 15 17 10"/>
+    <line x1="12" y1="15" x2="12" y2="3"/>
+  </svg>
+  Baixar PDF
+</button>
+
+<div class="cv">
+
+  <!-- HEADER -->
+  <div class="cv-header">
+    <div>
+      <h1>Pedro Gabriel Castor dos Santos</h1>
+      <div class="role">Desenvolvedor Full-Stack</div>
+    </div>
+    <div class="contacts">
+      <span>pedrogabrielcastor@gmail.com</span>
+      <span>(85) 9 9249-5585</span>
+      <span><a href="https://www.linkedin.com/in/pedrogabrielpg">linkedin.com/in/pedrogabrielpg</a></span>
+      <span>Fortaleza — CE</span>
+    </div>
+  </div>
+
+  <div class="cv-body">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <div class="s-block">
+        <h3>Linguagens</h3>
+        <div class="pill-wrap">
+          <span class="pill hi">PHP</span>
+          <span class="pill hi">JavaScript</span>
+          <span class="pill hi">TypeScript</span>
+          <span class="pill hi">SQL</span>
+          <span class="pill">HTML5</span>
+          <span class="pill">CSS3</span>
+        </div>
+      </div>
+
+      <div class="s-block">
+        <h3>Frameworks &amp; Libs</h3>
+        <div class="pill-wrap">
+          <span class="pill hi">Laravel 10</span>
+          <span class="pill hi">React 18</span>
+          <span class="pill hi">React Native 0.81</span>
+          <span class="pill hi">Expo 54</span>
+          <span class="pill">CodeIgniter 2</span>
+          <span class="pill">Tailwind CSS</span>
+          <span class="pill">Radix UI</span>
+          <span class="pill">React Hook Form</span>
+          <span class="pill">Zod</span>
+        </div>
+      </div>
+
+      <div class="s-block">
+        <h3>Banco de Dados</h3>
+        <div class="pill-wrap">
+          <span class="pill hi">PostgreSQL</span>
+          <span class="pill hi">Redis</span>
+          <span class="pill">MySQL</span>
+          <span class="pill">Eloquent ORM</span>
+        </div>
+      </div>
+
+      <div class="s-block">
+        <h3>Cloud &amp; IA</h3>
+        <div class="pill-wrap">
+          <span class="pill hi">AWS S3</span>
+          <span class="pill hi">AWS Rekognition</span>
+          <span class="pill hi">Google Gemini</span>
+          <span class="pill hi">Firebase FCM</span>
+          <span class="pill">Google Cloud API</span>
+          <span class="pill">Firestore</span>
+        </div>
+      </div>
+
+      <div class="s-block">
+        <h3>Integrações</h3>
+        <div class="pill-wrap">
+          <span class="pill hi">PagarMe</span>
+          <span class="pill hi">Banco Inter</span>
+          <span class="pill hi">NF-e / NFS-e</span>
+          <span class="pill hi">Medicar</span>
+          <span class="pill hi">GEES Teleméd.</span>
+          <span class="pill">ZapSign</span>
+          <span class="pill">Gerencianet</span>
+          <span class="pill">Iugu</span>
+          <span class="pill">WhatsApp Chatbot</span>
+          <span class="pill">Rec. Federal CNPJ</span>
+          <span class="pill">Google Sign-In</span>
+          <span class="pill">Apple ID</span>
+          <span class="pill">mPDF / DomPDF</span>
+        </div>
+      </div>
+
+      <div class="s-block">
+        <h3>Ferramentas</h3>
+        <div class="pill-wrap">
+          <span class="pill">Git</span>
+          <span class="pill">VS Code</span>
+          <span class="pill">Android Studio</span>
+          <span class="pill">Xcode</span>
+          <span class="pill">DBeaver</span>
+          <span class="pill">Vite</span>
+          <span class="pill">JWT</span>
+          <span class="pill">Axios</span>
+        </div>
+      </div>
+
+      <div class="s-block">
+        <h3>Formação</h3>
+        <div class="edu-entry">
+          <div class="deg">Engenharia de Software</div>
+          <div class="inst">Unifanor Wyden — Fortaleza, CE</div>
+          <div class="yr">2025 – 2028 · Cursando</div>
+        </div>
+        <div class="edu-entry">
+          <div class="deg">Técnico em Des. de Sistemas</div>
+          <div class="inst">EEEP Marly Ferreira Martins</div>
+          <div class="yr">2022 – 2024 · Concluído</div>
+        </div>
+      </div>
+
+      <div class="s-block">
+        <h3>Certificações</h3>
+        <ul class="cert-list">
+          <li>AWS Academy — Cloud Foundations</li>
+          <li>Huawei — HCIA-AI V3.5</li>
+          <li>Huawei — HCIA Cloud Computing V4.0</li>
+          <li>Huawei — HCIA 5G V2.0</li>
+          <li>Google — UX Design</li>
+          <li>Rocketseat — Java / Spring Boot</li>
+          <li>UFC PET COMP — Lógica de Prog.</li>
+        </ul>
+      </div>
+
+      <div class="s-block">
+        <h3>Idiomas</h3>
+        <div class="lang-row">Português <span>— Nativo</span></div>
+        <div class="lang-row">Inglês <span>— Técnico (docs &amp; código)</span></div>
+      </div>
+
+      <div class="s-block">
+        <h3>Competências</h3>
+        <span class="soft-pill">Trabalho em equipe</span>
+        <span class="soft-pill">Proatividade</span>
+        <span class="soft-pill">Aprendizado contínuo</span>
+        <span class="soft-pill">Pensamento crítico</span>
+        <span class="soft-pill">Resolução de problemas</span>
+        <span class="soft-pill">Flexibilidade</span>
+      </div>
+
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+      <div class="m-section">
+        <div class="m-title">Perfil Profissional</div>
+        <p class="profile-text">
+          Desenvolvedor Full-Stack com experiência em aplicações web, mobile e backend no setor de HealthTech e
+          plataformas de benefícios. Atuei com <strong>React, React Native, PHP (Laravel e CodeIgniter) e TypeScript</strong>,
+          integrando PagarMe, Banco Inter, Google Gemini (IA para anamneses), NF-e/NFS-e, AWS Rekognition,
+          login social e chatbot WhatsApp. Experiência em publicação nas lojas Google Play e App Store e
+          gestão de bancos de dados PostgreSQL em produção.
+        </p>
+      </div>
+
+      <div class="m-section">
+        <div class="m-title">Experiência Profissional</div>
+
+        <div class="job">
+          <div class="job-head">
+            <span class="job-title">Programador Júnior</span>
+            <span class="job-period">Jan 2025 — Atual</span>
+          </div>
+          <div class="job-company">Gees HealthTech Soluções em Gestão Ltda — Fortaleza, CE</div>
+          <ul>
+            <li>Desenvolvimento e manutenção de sistemas web, mobile e backend para clínicas, hospitais e plataformas de benefícios.</li>
+            <li>PagarMe: split de recebíveis, boleto, PIX e cartão com tokenização; assinatura digital de contratos via ZapSign.</li>
+            <li>Medicar e GEES: telemedicina e TelePet (humana e veterinária) nas duas plataformas.</li>
+            <li>AWS Rekognition para autenticação facial/biométrica (Face ID / Touch ID); armazenamento de documentos em AWS S3.</li>
+            <li>Banco Inter: consulta de extratos e conciliação financeira automatizada.</li>
+            <li>Google Gemini: transcrição de consultas e geração automatizada de anamneses por especialidade clínica.</li>
+            <li>Módulos de emissão NF-e/NFS-e (SP e Fortaleza) com certificado A1 (.pfx); autenticação social Google/Apple ID; Receita Federal CNPJ.</li>
+            <li>Firebase FCM/Firestore, chatbot WhatsApp, PDFs com DomPDF/mPDF; publicação e manutenção nas lojas Google Play e App Store.</li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="job">
+          <div class="job-head">
+            <span class="job-title">Estagiário — Desenvolvedor Full-Stack</span>
+            <span class="job-period">Ago 2024 — Dez 2024</span>
+          </div>
+          <div class="job-company">Gees HealthTech Soluções em Gestão Ltda — Fortaleza, CE</div>
+          <ul>
+            <li>Desenvolvimento de funcionalidades, correção de bugs e manutenção de sistemas web e mobile no setor de saúde.</li>
+            <li>Participação no desenvolvimento de aplicações React Native e integrações com bancos de dados e ferramentas externas.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="m-section">
+        <div class="m-title">Projetos de Destaque</div>
+
+        <div class="project">
+          <div class="proj-head">
+            <span class="proj-name">Plataforma de Fidelidade — Cartão de Benefícios</span>
+            <span class="proj-role">Desenvolvimento e Manutenção</span>
+          </div>
+          <p class="proj-desc">Plataforma white-label (backend API REST + app mobile + painel web) com módulos B2B, rede MDV, contratos digitais, telemedicina e marketplace de parceiros.</p>
+          <div class="tag-row">
+            <span class="t d">Laravel 10</span><span class="t d">PHP 8.1</span><span class="t d">React Native 0.81</span><span class="t d">React 18</span><span class="t d">TypeScript</span><span class="t d">PostgreSQL</span><span class="t d">Redis</span>
+            <span class="t m">PagarMe</span><span class="t m">ZapSign</span><span class="t m">AWS Rekognition</span><span class="t m">AWS S3</span><span class="t m">Firebase</span><span class="t m">Medicar (Teleméd.+TelePet)</span><span class="t m">GEES (Teleméd.+TelePet)</span><span class="t m">WhatsApp Chatbot</span><span class="t m">Rec. Federal</span>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="project">
+          <div class="proj-head">
+            <span class="proj-name">NFePocket — Emissão de NF-e para Profissionais</span>
+            <span class="proj-role">Desenvolvimento e Manutenção</span>
+          </div>
+          <p class="proj-desc">App mobile com fluxo de 4 etapas para emissão de NF-e/NFS-e, autenticação social (Google/Apple), programa de indicações, planos de assinatura e certificado A1 (.pfx).</p>
+          <div class="tag-row">
+            <span class="t d">React Native 0.81</span><span class="t d">Expo 54</span><span class="t d">TypeScript</span>
+            <span class="t m">PagarMe</span><span class="t m">NFS-e (SP/Fortaleza)</span><span class="t m">Google Sign-In</span><span class="t m">Apple ID</span><span class="t m">Firebase</span><span class="t m">Rec. Federal</span><span class="t">Cert. A1 (.pfx)</span>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="project">
+          <div class="proj-head">
+            <span class="proj-name">App Profissional Gees — App do Médico</span>
+            <span class="proj-role">Participação no Desenvolvimento</span>
+          </div>
+          <p class="proj-desc">App mobile para profissionais de saúde: prontuário eletrônico multi-abas, módulo de oftalmologia, fila de pacientes em tempo real, agendamento e relatório de produção.</p>
+          <div class="tag-row">
+            <span class="t d">React Native 0.81</span><span class="t d">Expo 54</span><span class="t d">TypeScript</span>
+            <span class="t m">Biometria (Face ID/Touch ID)</span><span class="t m">ViaCEP</span>
+            <span class="t">Prontuário Eletrônico</span><span class="t">Módulo Oftalmologia</span><span class="t">Expo SecureStore</span>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="project">
+          <div class="proj-head">
+            <span class="proj-name">Clinicas Gees — Gestão Hospitalar</span>
+            <span class="proj-role">Participação — Integrações: Banco Inter e Google Gemini</span>
+          </div>
+          <p class="proj-desc">Sistema web hospitalar (ambulatório, farmácia, financeiro). Contribuições: <strong>Banco Inter</strong> (extratos + conciliação) e <strong>Google Gemini</strong> (anamneses automáticas por especialidade).</p>
+          <div class="tag-row">
+            <span class="t d">CodeIgniter 2</span><span class="t d">PHP</span><span class="t d">PostgreSQL</span><span class="t d">Bootstrap 4/5</span><span class="t d">jQuery</span>
+            <span class="t m">Banco Inter</span><span class="t m">Google Gemini (IA)</span>
+            <span class="t">Pagar.me</span><span class="t">Gerencianet</span><span class="t">Iugu</span><span class="t">WhatsApp API</span><span class="t">mPDF</span>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+</div>
+
+<script>
+  document.getElementById('btn-pdf').addEventListener('click', () => window.print());
+</script>
+</body>
+</html>

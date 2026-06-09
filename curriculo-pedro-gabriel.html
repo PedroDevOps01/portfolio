@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pedro Gabriel Castor dos Santos — Currículo</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #111111;
+      --accent:  #333333;
+      --muted:   #6b7280;
+      --border:  #d1d5db;
+      --bg:      #ffffff;
+      --section-gap: 28px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #e5e7eb;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 40px auto;
+      background: var(--bg);
+      padding: 52px 56px;
+      box-shadow: 0 4px 24px rgba(0,0,0,.10);
+      border-radius: 6px;
+    }
+
+    /* ── HEADER ── */
+    .header { border-bottom: 2.5px solid #111111; padding-bottom: 20px; margin-bottom: 26px; }
+    .header h1 { font-size: 26px; font-weight: 700; color: #111111; letter-spacing: -.3px; }
+    .header .title { font-size: 14px; font-weight: 500; color: #555555; margin-top: 3px; text-transform: uppercase; letter-spacing: .8px; }
+    .contact-row { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 10px; font-size: 12.5px; color: var(--muted); }
+    .contact-row span { display: flex; align-items: center; gap: 5px; }
+    .contact-row a { color: #333333; text-decoration: none; }
+
+    /* ── SECTIONS ── */
+    section { margin-bottom: var(--section-gap); }
+    section + section { border-top: 1px solid var(--border); padding-top: var(--section-gap); }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: #111111;
+      margin-bottom: 14px;
+      border-left: 3px solid #111111;
+      padding-left: 8px;
+    }
+
+    /* ── PROFILE ── */
+    .profile p { color: #334155; line-height: 1.75; }
+
+    /* ── EXPERIENCE ── */
+    .job { margin-bottom: 20px; }
+    .job:last-child { margin-bottom: 0; }
+    .job-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 6px; }
+    .job-title { font-weight: 600; font-size: 14px; color: #111111; }
+    .job-company { font-size: 13px; color: #555555; margin-top: 1px; }
+    .job-period { font-size: 12px; color: #6b7280; white-space: nowrap; }
+    .job ul { margin-top: 8px; padding-left: 18px; }
+    .job ul li { margin-bottom: 4px; color: #334155; }
+
+    /* ── PROJECTS ── */
+    .project { margin-bottom: 22px; }
+    .project:last-child { margin-bottom: 0; }
+    .project-name { font-weight: 600; font-size: 13.5px; color: #111111; }
+    .project-role { font-size: 12px; color: #555555; font-style: italic; }
+    .project-desc { color: #334155; margin-top: 4px; margin-bottom: 6px; line-height: 1.7; }
+    .tag-group { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 4px; }
+    .tag {
+      background: #f3f4f6;
+      color: #111111;
+      border: 1px solid #9ca3af;
+      font-size: 11.5px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .tag.green  { background: #e5e7eb; color: #111111; border-color: #6b7280; }
+    .tag.purple { background: #d1d5db; color: #111111; border-color: #6b7280; }
+    .tag.orange { background: #e5e7eb; color: #374151; border-color: #9ca3af; }
+    .tag.gray   { background: #f9fafb; color: #374151; border-color: #d1d5db; }
+
+    /* ── SKILLS ── */
+    .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .skill-group h4 { font-size: 12px; font-weight: 600; color: #111111; margin-bottom: 6px; text-transform: uppercase; letter-spacing: .5px; }
+    .skill-group .tag-group { gap: 4px; }
+
+    /* ── EDUCATION ── */
+    .edu-item { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+    .edu-item:last-child { margin-bottom: 0; }
+    .edu-degree { font-weight: 600; font-size: 13.5px; color: #111111; }
+    .edu-institution { font-size: 13px; color: #555555; margin-top: 1px; }
+    .edu-period { font-size: 12px; color: #6b7280; white-space: nowrap; }
+
+    /* ── CERTS ── */
+    .cert-list { columns: 2; column-gap: 24px; }
+    .cert-list li { margin-bottom: 6px; color: #334155; font-size: 12.5px; break-inside: avoid; }
+
+    /* ── SOFTSKILLS ── */
+    .softskills-row { display: flex; flex-wrap: wrap; gap: 6px; }
+
+    @media print {
+      @page { margin: 12mm 14mm; size: A4; }
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      html, body { background: white !important; margin: 0 !important; padding: 0 !important; }
+      .page { box-shadow: none !important; margin: 0 !important; padding: 0 !important; border-radius: 0 !important; max-width: 100% !important; }
+    }
+    /* ── DOWNLOAD BUTTON ── */
+    #btn-pdf {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      background: #111111;
+      color: #ffffff;
+      border: none;
+      padding: 12px 22px;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0,0,0,.25);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 999;
+      transition: background .15s;
+    }
+    #btn-pdf:hover { background: #333333; }
+    #btn-pdf:active { background: #000000; }
+    #btn-pdf.loading { opacity: .6; pointer-events: none; }
+
+    @media print { #btn-pdf { display: none !important; } }
+  </style>
+</head>
+<body>
+<button id="btn-pdf" onclick="baixarPDF()">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+  </svg>
+  Baixar PDF
+</button>
+
+<div class="page" id="curriculo">
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1>Pedro Gabriel Castor dos Santos</h1>
+    <div class="title">Desenvolvedor Full-Stack</div>
+    <div class="contact-row">
+      <span>&#9993; pedrogabrielcastor@gmail.com</span>
+      <span>&#9742; (85) 9 9249-5585</span>
+      <span>&#128279; <a href="https://www.linkedin.com/in/pedrogabrielpg" target="_blank">linkedin.com/in/pedrogabrielpg</a></span>
+      <span>&#127968; Fortaleza — CE</span>
+    </div>
+  </div>
+
+  <!-- PERFIL -->
+  <section class="profile">
+    <div class="section-title">Perfil Profissional</div>
+    <p>
+      Desenvolvedor Full-Stack com experiência no desenvolvimento e manutenção de aplicações
+      web, mobile e backend no setor de HealthTech e plataformas de benefícios. Atuei na
+      construção de sistemas complexos com <strong>React, React Native, PHP (Laravel e CodeIgniter),
+      TypeScript e PostgreSQL</strong>, implementando integrações com gateways de pagamento (PagarMe),
+      APIs bancárias (Banco Inter), <strong>IA generativa (Google Gemini)</strong> para geração de
+      anamneses clínicas, emissão de <strong>NF-e/NFS-e</strong>, autenticação facial e biométrica
+      (AWS Rekognition), comunicação em tempo real via <strong>Socket.IO + WebRTC</strong> para
+      teleconsultas, login social (Google e Apple ID) e chatbot para disparos via WhatsApp. Tenho
+      experiência em publicação e manutenção de aplicativos nas lojas <strong>Google Play</strong>
+      e <strong>App Store</strong>, gestão de bancos de dados em servidor e participação ativa em
+      decisões técnicas e arquiteturais de produtos em produção.
+    </p>
+  </section>
+
+  <!-- EXPERIÊNCIA -->
+  <section>
+    <div class="section-title">Experiência Profissional</div>
+
+    <div class="job">
+      <div class="job-header">
+        <div>
+          <div class="job-title">Programador Júnior</div>
+          <div class="job-company">Gees HealthTech Soluções em Gestão Ltda — Fortaleza, CE</div>
+        </div>
+        <div class="job-period">Jan 2025 — Atual</div>
+      </div>
+      <ul>
+        <li>Desenvolvimento e manutenção de sistemas web, mobile e backend para gestão de clínicas, hospitais e plataformas de benefícios.</li>
+        <li>Integração com gateway de pagamento PagarMe (split de recebíveis, boleto, PIX, cartão de crédito com tokenização) e assinatura digital de contratos via ZapSign.</li>
+        <li>Integração com Medicar (telemedicina e TelePet — plataforma terceira) e com o sistema próprio GEES (telemedicina e TelePet internos), permitindo agendamento e realização de consultas humanas e veterinárias em ambas as plataformas.</li>
+        <li>Integração com AWS Rekognition para autenticação por reconhecimento facial e biometria (Face ID / Touch ID) em apps mobile.</li>
+        <li>Integração com API do Banco Inter para consulta de extratos bancários e construção de fluxo de conciliação financeira automatizada.</li>
+        <li>Integração com Google Gemini (IA generativa) para transcrição de consultas e geração automatizada de anamneses médicas de acordo com a especialidade clínica.</li>
+        <li>Desenvolvimento de módulos completos de emissão de NF-e/NFS-e para os municípios de São Paulo e Fortaleza, com autenticação via certificado digital A1 (.pfx).</li>
+        <li>Implementação de autenticação social com Google Sign-In e Apple ID via Google Cloud API.</li>
+        <li>Integração com API da Receita Federal para consulta e validação de CNPJ em tempo real.</li>
+        <li>Implementação de comunicação em tempo real com Socket.IO e WebRTC para teleconsultas médicas e veterinárias.</li>
+        <li>Integração com Firebase (FCM + Firestore) para push notifications e chatbot para disparos automatizados de mensagens via WhatsApp.</li>
+        <li>Criação de arquivo de API centralizado para integrações com sistemas externos, padronizando autenticação e contratos de dados.</li>
+        <li>Geração de documentos PDF (contratos, receituários, laudos) com DomPDF e mPDF integrados ao fluxo de trabalho clínico.</li>
+        <li>Armazenamento e gestão de documentos e mídias em AWS S3.</li>
+        <li>Configuração de ambientes de servidor, deploy e gestão de bancos de dados PostgreSQL em produção.</li>
+        <li>Publicação e atualização de aplicativos nas lojas Google Play e App Store.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <div>
+          <div class="job-title">Estagiário — Desenvolvedor Full-Stack</div>
+          <div class="job-company">Gees HealthTech Soluções em Gestão Ltda — Fortaleza, CE</div>
+        </div>
+        <div class="job-period">Ago 2024 — Dez 2024</div>
+      </div>
+      <ul>
+        <li>Desenvolvimento de funcionalidades para sistemas internos de gestão hospitalar.</li>
+        <li>Integrações com bancos de dados e ferramentas externas.</li>
+        <li>Correção de bugs, manutenção e melhoria de performance em aplicações web e mobile.</li>
+        <li>Participação no desenvolvimento de aplicações React Native para o setor de saúde.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PROJETOS -->
+  <section>
+    <div class="section-title">Projetos de Destaque</div>
+
+    <div class="project">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px;">
+        <span class="project-name">Plataforma de Fidelidade — Cartão de Benefícios</span>
+        <span class="project-role">Desenvolvimento e Manutenção</span>
+      </div>
+      <div class="project-desc">
+        Plataforma white-label de cartão de benefícios vendida a clientes com layout e identidade visual customizáveis.
+        Composta por backend API REST, aplicativo mobile e painel web administrativo. Sistema com módulos
+        B2B, rede MDV de representantes, contratos digitais com assinatura biométrica, telemedicina humana e
+        veterinária, e marketplace de parceiros.
+      </div>
+      <div class="tag-group">
+        <span class="tag">Laravel 10</span>
+        <span class="tag">PHP 8.1</span>
+        <span class="tag">React Native 0.81</span>
+        <span class="tag">React 18</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">Redis</span>
+        <span class="tag green">PagarMe (split)</span>
+        <span class="tag green">ZapSign</span>
+        <span class="tag green">AWS Rekognition</span>
+        <span class="tag green">AWS S3</span>
+        <span class="tag green">Firebase FCM</span>
+        <span class="tag green">Medicar (Telemedicina + TelePet)</span>
+        <span class="tag green">GEES (Telemedicina + TelePet)</span>
+        <span class="tag green">WhatsApp Chatbot</span>
+        <span class="tag green">Receita Federal (CNPJ)</span>
+        <span class="tag green">DomPDF / mPDF</span>
+        <span class="tag purple">Socket.IO</span>
+        <span class="tag purple">WebRTC</span>
+        <span class="tag orange">JWT</span>
+        <span class="tag gray">Tailwind CSS</span>
+        <span class="tag gray">Radix UI</span>
+        <span class="tag gray">Vite</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px;">
+        <span class="project-name">NFePocket — Emissão de NF-e para Profissionais</span>
+        <span class="project-role">Desenvolvimento e Manutenção</span>
+      </div>
+      <div class="project-desc">
+        Aplicativo mobile para emissão de NF-e/NFS-e voltado a profissionais liberais. Possui fluxo de 4 etapas
+        guiado por contexto, autenticação social (Google e Apple), programa de indicações com comissionamento,
+        planos de assinatura com múltiplos meios de pagamento (Pix, cartão, boleto) e suporte a certificado
+        digital A1 (.pfx) para múltiplos municípios.
+      </div>
+      <div class="tag-group">
+        <span class="tag">React Native 0.81</span>
+        <span class="tag">Expo 54</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag green">PagarMe</span>
+        <span class="tag green">NFS-e (SP / Fortaleza)</span>
+        <span class="tag green">Google Sign-In</span>
+        <span class="tag green">Apple ID</span>
+        <span class="tag green">Google Cloud API</span>
+        <span class="tag green">Firebase</span>
+        <span class="tag green">Receita Federal (CNPJ)</span>
+        <span class="tag orange">Certificado A1 (.pfx)</span>
+        <span class="tag orange">JWT / SecureStore</span>
+        <span class="tag gray">Expo Router</span>
+        <span class="tag gray">Axios + Interceptors</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px;">
+        <span class="project-name">App Profissional Gees — App do Médico</span>
+        <span class="project-role">Participação no Desenvolvimento</span>
+      </div>
+      <div class="project-desc">
+        Aplicativo mobile voltado ao profissional de saúde, integrando-se ao backend do sistema de clínicas.
+        Oferece prontuário eletrônico com múltiplas abas especializadas (evolução, prescrições, SADT, atestados,
+        laudos), módulo de oftalmologia, fila de pacientes em tempo real, agendamento e relatório de produção.
+      </div>
+      <div class="tag-group">
+        <span class="tag">React Native 0.81</span>
+        <span class="tag">Expo 54</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag green">ViaCEP</span>
+        <span class="tag purple">Biometria (Face ID / Touch ID)</span>
+        <span class="tag orange">Prontuário Eletrônico</span>
+        <span class="tag orange">Módulo Oftalmologia</span>
+        <span class="tag gray">Expo Router</span>
+        <span class="tag gray">Expo SecureStore</span>
+        <span class="tag gray">AsyncStorage</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px;">
+        <span class="project-name">Clinicas Gees — Sistema de Gestão Hospitalar</span>
+        <span class="project-role">Participação — Integrações: Banco Inter e IA Gemini</span>
+      </div>
+      <div class="project-desc">
+        Sistema web completo para gestão de clínicas e hospitais, com módulos de ambulatório, farmácia,
+        estoque, internação, centro cirúrgico, laboratório e gestão financeira. Minhas contribuições
+        diretas incluíram a integração com a <strong>API do Banco Inter</strong> (consulta de extratos
+        e fluxo de conciliação bancária automatizada) e a integração com <strong>Google Gemini</strong>
+        para transcrição de consultas e geração automatizada de anamneses clínicas conforme a
+        especialidade do profissional.
+      </div>
+      <div class="tag-group">
+        <span class="tag">CodeIgniter 2</span>
+        <span class="tag">PHP</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">Bootstrap 4/5</span>
+        <span class="tag">jQuery</span>
+        <span class="tag">FullCalendar 6</span>
+        <span class="tag green">Banco Inter (extratos + conciliação)</span>
+        <span class="tag green">Google Gemini (IA — anamneses)</span>
+        <span class="tag green">Pagar.me</span>
+        <span class="tag green">Gerencianet</span>
+        <span class="tag green">Iugu</span>
+        <span class="tag green">WhatsApp (Digisac + 360Dialog)</span>
+        <span class="tag green">AWS S3</span>
+        <span class="tag green">PHPMailer</span>
+        <span class="tag green">NF-e</span>
+        <span class="tag green">Google Calendar API</span>
+        <span class="tag gray">MVC</span>
+        <span class="tag gray">tcPDF / mPDF</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- HABILIDADES TÉCNICAS -->
+  <section>
+    <div class="section-title">Habilidades Técnicas</div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h4>Linguagens</h4>
+        <div class="tag-group">
+          <span class="tag">PHP</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">SQL</span>
+          <span class="tag">HTML5</span>
+          <span class="tag">CSS3</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Frameworks &amp; Bibliotecas</h4>
+        <div class="tag-group">
+          <span class="tag">Laravel 10</span>
+          <span class="tag">CodeIgniter 2</span>
+          <span class="tag">React 18</span>
+          <span class="tag">React Native 0.81</span>
+          <span class="tag">Expo 54</span>
+          <span class="tag">Tailwind CSS</span>
+          <span class="tag">Radix UI</span>
+          <span class="tag">React Hook Form</span>
+          <span class="tag">Zod</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Banco de Dados &amp; Cache</h4>
+        <div class="tag-group">
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">Redis</span>
+          <span class="tag">Eloquent ORM</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Cloud, IA &amp; Infraestrutura</h4>
+        <div class="tag-group">
+          <span class="tag">AWS S3</span>
+          <span class="tag">AWS Rekognition</span>
+          <span class="tag">Firebase (FCM / Firestore)</span>
+          <span class="tag">Google Cloud API</span>
+          <span class="tag">Google Gemini (IA Generativa)</span>
+          <span class="tag">Deploy (App Store / Google Play)</span>
+          <span class="tag">Gestão de Servidores</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Integrações</h4>
+        <div class="tag-group">
+          <span class="tag">PagarMe</span>
+          <span class="tag">Gerencianet</span>
+          <span class="tag">Iugu</span>
+          <span class="tag">Banco Inter</span>
+          <span class="tag">ZapSign</span>
+          <span class="tag">Medicar (Telemedicina + TelePet)</span>
+          <span class="tag">GEES (Telemedicina + TelePet)</span>
+          <span class="tag">WhatsApp Chatbot</span>
+          <span class="tag">Receita Federal (CNPJ)</span>
+          <span class="tag">NF-e / NFS-e</span>
+          <span class="tag">Socket.IO</span>
+          <span class="tag">WebRTC</span>
+          <span class="tag">Google Sign-In</span>
+          <span class="tag">Apple ID</span>
+          <span class="tag">mPDF / DomPDF</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Ferramentas &amp; Outros</h4>
+        <div class="tag-group">
+          <span class="tag">Git</span>
+          <span class="tag">VS Code</span>
+          <span class="tag">Android Studio</span>
+          <span class="tag">Xcode</span>
+          <span class="tag">DBeaver</span>
+          <span class="tag">Vite</span>
+          <span class="tag">Axios</span>
+          <span class="tag">JWT</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMAÇÃO -->
+  <section>
+    <div class="section-title">Formação Acadêmica</div>
+    <div class="edu-item">
+      <div>
+        <div class="edu-degree">Bacharelado em Engenharia de Software</div>
+        <div class="edu-institution">Unifanor Wyden — Fortaleza, CE</div>
+      </div>
+      <div class="edu-period">2025 — 2028 (Cursando)</div>
+    </div>
+    <div class="edu-item">
+      <div>
+        <div class="edu-degree">Técnico em Desenvolvimento de Sistemas</div>
+        <div class="edu-institution">E.E.E.P Professora Marly Ferreira Martins — Caucaia, CE</div>
+      </div>
+      <div class="edu-period">2022 — 2024 (Concluído)</div>
+    </div>
+  </section>
+
+  <!-- CERTIFICAÇÕES -->
+  <section>
+    <div class="section-title">Certificações</div>
+    <ul class="cert-list">
+      <li>AWS Academy — Cloud Foundations</li>
+      <li>Huawei — HCIA-AI V3.5</li>
+      <li>Huawei — HCIA Cloud Computing V4.0</li>
+      <li>Huawei — HCIA 5G V2.0</li>
+      <li>Google — UX Design</li>
+      <li>Rocketseat — Java com Spring Boot / Full-Stack</li>
+      <li>UFC PET COMP — Lógica de Programação e Desenvolvimento de Soluções</li>
+    </ul>
+  </section>
+
+  <!-- SOFT SKILLS -->
+  <section>
+    <div class="section-title">Competências Comportamentais</div>
+    <div class="softskills-row">
+      <span class="tag gray">Trabalho em equipe</span>
+      <span class="tag gray">Proatividade</span>
+      <span class="tag gray">Aprendizado contínuo</span>
+      <span class="tag gray">Pensamento crítico</span>
+      <span class="tag gray">Resolução de problemas</span>
+      <span class="tag gray">Flexibilidade</span>
+      <span class="tag gray">Comunicação técnica</span>
+    </div>
+    <div style="margin-top:10px;font-size:12.5px;color:var(--muted);">
+      Idiomas: Português (nativo) &nbsp;|&nbsp; Inglês técnico (leitura de documentações, escrita de código e comunicação com APIs)
+    </div>
+  </section>
+
+</div>
+<script>
+  function baixarPDF() {
+    window.print();
+  }
+</script>
+</body>
+</html>

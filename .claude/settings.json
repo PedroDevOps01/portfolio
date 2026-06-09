@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /Volumes/extended/dev/projetos/gees/mobile/fidelidade-app-demo -type f -name \"package.json\" -o -name \"pubspec.yaml\" -o -name \"*.json\" -o -name \"*.yaml\" | head -20)",
+      "Read(//Volumes/extended/dev/projetos/gees/mobile/fidelidade-app-demo/**)",
+      "Bash(find /Volumes/extended/dev/projetos/gees/web/fidelidade-web/fidelidade-frontend -type f -name \"package.json\" -o -name \"package-lock.json\" -o -name \"yarn.lock\" | head -20)",
+      "Read(//Volumes/extended/dev/projetos/gees/web/fidelidade-web/fidelidade-frontend/**)",
+      "Bash(find /Users/henriquebraga/Downloads/appemissor-main -type f -name \"*.json\" -o -name \"*.yaml\" -o -name \"*.yml\" -o -name \"*.toml\" | head -20)",
+      "Read(//Users/henriquebraga/Downloads/appemissor-main/**)",
+      "Bash(find /Volumes/extended/dev/projetos/gees/web/clinicas -type f -name \"*.json\" -o -name \"*.lock\" -o -name \"*.yaml\" -o -name \"*.yml\" -o -name \".env*\" -o -name \"*.xml\" | head -30)",
+      "Read(//Volumes/extended/dev/projetos/gees/web/clinicas/**)",
+      "Bash(find /Volumes/extended/dev/projetos/Profissionalgees -type f -name \"package.json\" -o -name \"pubspec.yaml\" -o -name \"build.gradle\" -o -name \"Podfile\" -o -name \"*.ios.json\" -o -name \"*.android.json\" 2>/dev/null | head -20)",
+      "Read(//Volumes/extended/dev/projetos/Profissionalgees/**)",
+      "Bash(xargs -I {} basename {})",
+      "Bash(ls -la /Volumes/extended/dev/projetos/Professionalgees/hooks/ 2>/dev/null)",
+      "Read(//Volumes/extended/dev/projetos/Professionalgees/**)",
+      "Bash(ls -la /Volumes/external/dev/projetos/gees/web/clinicas/application/models/ 2>/dev/null | head -20 || echo \"Path not found, trying alternative\")",
+      "Read(//Volumes/external/dev/projetos/gees/web/clinicas/application/**)",
+      "Bash(xargs basename -a)",
+      "Bash(\\\\\\(/[^)",
+      "Bash(grep -o \"'\\\\\\(/[^']*\\\\|`\\\\\\(/[^`]*\")",
+      "Bash(pdftotext /Users/henriquebraga/curriculo/curriculo_luiz_carlos_coelho_freitas.pdf -)",
+      "Bash(grep -v \"^$\")",
+      "Bash(python3)",
+      "Bash(grep -v \"^.$\")"
+    ]
+  }
+}
