@@ -213,6 +213,7 @@
     .badge{padding:4px 11px;border-radius:100px;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap}
     .badge-green{background:rgba(16,185,129,.1);color:var(--accent3);border:1px solid rgba(16,185,129,.2)}
     .badge-cyan{background:rgba(6,182,212,.1);color:var(--accent2);border:1px solid rgba(6,182,212,.2)}
+    .badge-purple{background:rgba(139,92,246,.1);color:var(--accent);border:1px solid rgba(139,92,246,.25)}
     .pcard-name{font-size:19px;font-weight:700;color:var(--text);margin-bottom:3px}
     .pcard-sub{font-size:12.5px;color:var(--muted);font-style:italic;margin-bottom:12px}
     .pcard-desc{font-size:14px;color:var(--text2);line-height:1.75;margin-bottom:18px}
@@ -431,8 +432,8 @@
   <div class="container">
     <div class="stats-grid">
       <div class="stat-item reveal"><div class="stat-number" data-target="1" data-suffix="+">0</div><div class="stat-label" data-i18n="stat1.label">ano de experiência<br>em produção</div></div>
-      <div class="stat-item reveal"><div class="stat-number" data-target="4" data-suffix="">0</div><div class="stat-label" data-i18n="stat2.label">produtos em<br>produção ativos</div></div>
-      <div class="stat-item reveal"><div class="stat-number" data-target="15" data-suffix="+">0</div><div class="stat-label" data-i18n="stat3.label">integrações<br>implementadas</div></div>
+      <div class="stat-item reveal"><div class="stat-number" data-target="7" data-suffix="">0</div><div class="stat-label" data-i18n="stat2.label">produtos em<br>produção ativos</div></div>
+      <div class="stat-item reveal"><div class="stat-number" data-target="20" data-suffix="+">0</div><div class="stat-label" data-i18n="stat3.label">integrações<br>implementadas</div></div>
       <div class="stat-item reveal"><div class="stat-number" data-target="16" data-suffix="">0</div><div class="stat-label" data-i18n="stat4.label">apps publicados<br>Play &amp; App Store</div></div>
     </div>
   </div>
@@ -629,6 +630,80 @@
             <li>Gestão financeira com Pagar.me, Gerencianet e Iugu.</li>
             <li>Disparos via WhatsApp (Digisac + 360Dialog) e e-mail (PHPMailer).</li>
             <li>Emissão de NF-e e integração com Google Calendar para agendamentos.</li>
+          </ul></div>
+        </div>
+      </div>
+
+      <div class="pcard reveal">
+        <div class="pcard-head">
+          <div class="pcard-icon">⛪</div>
+          <span class="badge badge-purple" data-i18n="p5.badge">Projeto Pessoal</span>
+        </div>
+        <div class="pcard-name" data-i18n="p5.name">Ministério dos Acólitos</div>
+        <div class="pcard-sub" data-i18n="p5.sub">Sistema de Escala Litúrgica</div>
+        <div class="pcard-desc" data-i18n="p5.desc">Sistema web completo para gestão de ministérios de acólitos: escalas automáticas com sugestão inteligente por disponibilidade, controle de presença via QR Code, importação de agenda paroquial por IA e chatbot de consultas rápidas.</div>
+        <div class="pcard-tags">
+          <span class="ptag ptag-tech">Laravel 13</span><span class="ptag ptag-tech">PHP 8.3</span><span class="ptag ptag-tech">React 19</span><span class="ptag ptag-tech">TypeScript</span><span class="ptag ptag-tech">Vite</span><span class="ptag ptag-tech">PostgreSQL 16</span>
+          <span class="ptag ptag-int">Google Gemini (IA)</span><span class="ptag ptag-int">Evolution API (WhatsApp)</span><span class="ptag ptag-int">DomPDF</span><span class="ptag ptag-int">@dnd-kit</span><span class="ptag ptag-int">QR Code</span>
+        </div>
+        <button class="detail-toggle" onclick="toggleProject(this)"><span data-i18n="proj.show">Ver detalhes</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></button>
+        <div class="pcard-details">
+          <div class="details-inner"><ul data-i18n="p5.details">
+            <li>Geração automática de escalas com regras por horário/celebração e rotatividade justa entre cerimoniários.</li>
+            <li>Confirmação de presença via QR Code (HMAC) e link único sem necessidade de login.</li>
+            <li>Importação de agenda paroquial por foto ou PDF com Google Gemini, identificando celebrações automaticamente.</li>
+            <li>Chatbot "Sávio" com respostas em linguagem natural sobre escalas, presenças e formação.</li>
+            <li>Notificações automáticas via WhatsApp (Evolution API self-hospedada): lembretes, aniversários e alertas administrativos.</li>
+            <li>Módulo de formação litúrgica com emissão de certificados em PDF (DomPDF) e portal público com SEO.</li>
+          </ul></div>
+        </div>
+      </div>
+
+      <div class="pcard reveal">
+        <div class="pcard-head">
+          <div class="pcard-icon">🎁</div>
+          <span class="badge badge-purple" data-i18n="p6.badge">Projeto Pessoal</span>
+        </div>
+        <div class="pcard-name" data-i18n="p6.name">Hope</div>
+        <div class="pcard-sub" data-i18n="p6.sub">Catálogo de Presentes Personalizados</div>
+        <div class="pcard-desc" data-i18n="p6.desc">Catálogo web para venda de presentes e artes personalizadas (kits e caixinhas), com carrinho, pedidos e solicitações sob encomenda finalizados via WhatsApp, além de painel administrativo com dashboard, relatórios e gestão de catálogo.</div>
+        <div class="pcard-tags">
+          <span class="ptag ptag-tech">Laravel 13</span><span class="ptag ptag-tech">PHP 8.3</span><span class="ptag ptag-tech">React 19</span><span class="ptag ptag-tech">TypeScript</span><span class="ptag ptag-tech">Sanctum</span>
+          <span class="ptag ptag-int">WhatsApp</span><span class="ptag ptag-int">Upload de Imagens</span>
+        </div>
+        <button class="detail-toggle" onclick="toggleProject(this)"><span data-i18n="proj.show">Ver detalhes</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></button>
+        <div class="pcard-details">
+          <div class="details-inner"><ul data-i18n="p6.details">
+            <li>Catálogo público com categorias, kits, caixinhas personalizadas, banners e FAQ.</li>
+            <li>Carrinho de compras e fluxo de pedido/solicitação personalizada, finalizado via WhatsApp.</li>
+            <li>Acompanhamento de pedido por código, sem necessidade de cadastro do cliente.</li>
+            <li>Painel administrativo: produtos, categorias, banners, pedidos, solicitações e relatórios com exportação.</li>
+            <li>Autenticação via Laravel Sanctum e upload de imagens de produtos.</li>
+          </ul></div>
+        </div>
+      </div>
+
+      <div class="pcard reveal">
+        <div class="pcard-head">
+          <div class="pcard-icon">👗</div>
+          <span class="badge badge-purple" data-i18n="p7.badge">Projeto Pessoal</span>
+        </div>
+        <div class="pcard-name" data-i18n="p7.name">Boutique Lene Castor</div>
+        <div class="pcard-sub" data-i18n="p7.sub">E-commerce de Moda com Guia de Medidas 3D</div>
+        <div class="pcard-desc" data-i18n="p7.desc">E-commerce de moda feminina com guia de medidas 3D interativo (manequim paramétrico em Three.js), checkout multi-etapas com cálculo de frete e múltiplas formas de pagamento, painel admin completo e emissão de NFS-e.</div>
+        <div class="pcard-tags">
+          <span class="ptag ptag-tech">Laravel 12</span><span class="ptag ptag-tech">PHP 8.4</span><span class="ptag ptag-tech">React 19</span><span class="ptag ptag-tech">Zustand</span><span class="ptag ptag-tech">Three.js</span><span class="ptag ptag-tech">PostgreSQL</span><span class="ptag ptag-tech">Redis</span>
+          <span class="ptag ptag-int">PagarMe v5</span><span class="ptag ptag-int">Melhor Envio</span><span class="ptag ptag-int">ViaCEP</span><span class="ptag ptag-int">NFS-e (ABRASF/GINFES)</span><span class="ptag ptag-int">JWT</span>
+        </div>
+        <button class="detail-toggle" onclick="toggleProject(this)"><span data-i18n="proj.show">Ver detalhes</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></button>
+        <div class="pcard-details">
+          <div class="details-inner"><ul data-i18n="p7.details">
+            <li>Guia de Medidas 3D: manequim paramétrico que deforma em tempo real conforme busto/cintura/quadril, com badge de tamanho recomendado.</li>
+            <li>Checkout multi-etapas: endereço → frete → pagamento → confirmação, com PIX, cartão parcelado, débito e boleto via PagarMe v5.</li>
+            <li>Cálculo de frete automático via Melhor Envio, com opção de retirada na loja.</li>
+            <li>Emissão de NFS-e (ABRASF 1.0 / GINFES Fortaleza) com certificado A1 criptografado.</li>
+            <li>Painel admin: produtos com variações de cor/tamanho, coleções, estoque, financeiro e configurações fiscais.</li>
+            <li>Autenticação JWT com refresh token e RBAC (admin, seller, customer).</li>
           </ul></div>
         </div>
       </div>
@@ -864,6 +939,18 @@
       'p4.sub': 'Sistema de Gestão Hospitalar Completo',
       'p4.desc': 'Sistema web para gestão de clínicas e hospitais com módulos de ambulatório, farmácia, estoque, internação, laboratório e gestão financeira. Contribuições diretas: Banco Inter para conciliação bancária e Google Gemini para anamneses com IA.',
       'p4.details': '<li>API do Banco Inter para consulta de extratos e conciliação bancária automatizada.</li><li>Google Gemini (IA generativa) para transcrição e geração de anamneses por especialidade clínica.</li><li>Gestão financeira com Pagar.me, Gerencianet e Iugu.</li><li>Disparos via WhatsApp (Digisac + 360Dialog) e e-mail (PHPMailer).</li><li>Emissão de NF-e e integração com Google Calendar para agendamentos.</li>',
+      'p5.badge': 'Projeto Pessoal', 'p5.name': 'Ministério dos Acólitos',
+      'p5.sub': 'Sistema de Escala Litúrgica',
+      'p5.desc': 'Sistema web completo para gestão de ministérios de acólitos: escalas automáticas com sugestão inteligente por disponibilidade, controle de presença via QR Code, importação de agenda paroquial por IA e chatbot de consultas rápidas.',
+      'p5.details': '<li>Geração automática de escalas com regras por horário/celebração e rotatividade justa entre cerimoniários.</li><li>Confirmação de presença via QR Code (HMAC) e link único sem necessidade de login.</li><li>Importação de agenda paroquial por foto ou PDF com Google Gemini, identificando celebrações automaticamente.</li><li>Chatbot "Sávio" com respostas em linguagem natural sobre escalas, presenças e formação.</li><li>Notificações automáticas via WhatsApp (Evolution API self-hospedada): lembretes, aniversários e alertas administrativos.</li><li>Módulo de formação litúrgica com emissão de certificados em PDF (DomPDF) e portal público com SEO.</li>',
+      'p6.badge': 'Projeto Pessoal', 'p6.name': 'Hope',
+      'p6.sub': 'Catálogo de Presentes Personalizados',
+      'p6.desc': 'Catálogo web para venda de presentes e artes personalizadas (kits e caixinhas), com carrinho, pedidos e solicitações sob encomenda finalizados via WhatsApp, além de painel administrativo com dashboard, relatórios e gestão de catálogo.',
+      'p6.details': '<li>Catálogo público com categorias, kits, caixinhas personalizadas, banners e FAQ.</li><li>Carrinho de compras e fluxo de pedido/solicitação personalizada, finalizado via WhatsApp.</li><li>Acompanhamento de pedido por código, sem necessidade de cadastro do cliente.</li><li>Painel administrativo: produtos, categorias, banners, pedidos, solicitações e relatórios com exportação.</li><li>Autenticação via Laravel Sanctum e upload de imagens de produtos.</li>',
+      'p7.badge': 'Projeto Pessoal', 'p7.name': 'Boutique Lene Castor',
+      'p7.sub': 'E-commerce de Moda com Guia de Medidas 3D',
+      'p7.desc': 'E-commerce de moda feminina com guia de medidas 3D interativo (manequim paramétrico em Three.js), checkout multi-etapas com cálculo de frete e múltiplas formas de pagamento, painel admin completo e emissão de NFS-e.',
+      'p7.details': '<li>Guia de Medidas 3D: manequim paramétrico que deforma em tempo real conforme busto/cintura/quadril, com badge de tamanho recomendado.</li><li>Checkout multi-etapas: endereço → frete → pagamento → confirmação, com PIX, cartão parcelado, débito e boleto via PagarMe v5.</li><li>Cálculo de frete automático via Melhor Envio, com opção de retirada na loja.</li><li>Emissão de NFS-e (ABRASF 1.0 / GINFES Fortaleza) com certificado A1 criptografado.</li><li>Painel admin: produtos com variações de cor/tamanho, coleções, estoque, financeiro e configurações fiscais.</li><li>Autenticação JWT com refresh token e RBAC (admin, seller, customer).</li>',
       'exp.label': 'Experiência', 'exp.title': 'Minha <span>Trajetória</span>',
       'exp.desc': 'Construída em ambiente real de produção, em HealthTech e plataformas de benefícios.',
       'exp1.period': 'Jan 2025 — Atual', 'exp1.title': 'Programador Júnior',
@@ -930,6 +1017,18 @@
       'p4.sub': 'Complete Hospital Management System',
       'p4.desc': 'Web system for clinic and hospital management with modules for outpatient care, pharmacy, inventory, hospitalization, laboratory and financial management. Direct contributions: Banco Inter for bank reconciliation and Google Gemini for AI-powered anamneses.',
       'p4.details': '<li>Banco Inter API for account statement queries and automated bank reconciliation.</li><li>Google Gemini (generative AI) for transcription and generation of anamneses by clinical specialty.</li><li>Financial management with Pagar.me, Gerencianet and Iugu.</li><li>Messaging via WhatsApp (Digisac + 360Dialog) and email (PHPMailer).</li><li>NF-e issuance and Google Calendar integration for scheduling.</li>',
+      'p5.badge': 'Personal Project', 'p5.name': 'Ministério dos Acólitos',
+      'p5.sub': 'Liturgical Scheduling System',
+      'p5.desc': 'Complete web system for managing altar server ministries: automatic scheduling with smart suggestions based on availability, QR Code attendance tracking, AI-powered agenda import, and a quick-query chatbot.',
+      'p5.details': '<li>Automatic schedule generation with rules by time/celebration and fair rotation among ceremonials.</li><li>Attendance confirmation via QR Code (HMAC) and a single link with no login required.</li><li>Parish agenda import from photo or PDF with Google Gemini, automatically identifying celebrations.</li><li>"Sávio" chatbot with natural language answers about schedules, attendance and training.</li><li>Automated WhatsApp notifications (self-hosted Evolution API): reminders, birthdays and admin alerts.</li><li>Liturgical training module with PDF certificate issuance (DomPDF) and a public portal with SEO.</li>',
+      'p6.badge': 'Personal Project', 'p6.name': 'Hope',
+      'p6.sub': 'Personalized Gift Catalog',
+      'p6.desc': 'Web catalog for selling personalized gifts and art (kits and small boxes), with cart, orders and custom requests finalized via WhatsApp, plus an admin panel with dashboard, reports and catalog management.',
+      'p6.details': '<li>Public catalog with categories, kits, personalized gift boxes, banners and FAQ.</li><li>Shopping cart and order/custom request flow, finalized via WhatsApp.</li><li>Order tracking by code, with no customer registration required.</li><li>Admin panel: products, categories, banners, orders, requests and reports with export.</li><li>Authentication via Laravel Sanctum and product image upload.</li>',
+      'p7.badge': 'Personal Project', 'p7.name': 'Boutique Lene Castor',
+      'p7.sub': 'Fashion E-commerce with 3D Measurement Guide',
+      'p7.desc': "Women's fashion e-commerce with an interactive 3D measurement guide (parametric mannequin in Three.js), multi-step checkout with shipping calculation and multiple payment methods, full admin panel and NFS-e tax invoice issuance.",
+      'p7.details': '<li>3D Measurement Guide: parametric mannequin that deforms in real time based on bust/waist/hip measurements, with recommended size badge.</li><li>Multi-step checkout: address → shipping → payment → confirmation, with PIX, installment card, debit and boleto via PagarMe v5.</li><li>Automatic shipping calculation via Melhor Envio, with in-store pickup option.</li><li>NFS-e tax invoice issuance (ABRASF 1.0 / GINFES Fortaleza) with encrypted A1 certificate.</li><li>Admin panel: products with color/size variations, collections, inventory, finance and tax settings.</li><li>JWT authentication with refresh token and RBAC (admin, seller, customer).</li>',
       'exp.label': 'Experience', 'exp.title': 'My <span>Journey</span>',
       'exp.desc': 'Built in a real production environment, in HealthTech and benefits platforms.',
       'exp1.period': 'Jan 2025 — Present', 'exp1.title': 'Junior Developer',
