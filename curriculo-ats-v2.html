@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Pedro Gabriel Castor dos Santos — Currículo ATS</title>
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000000;
+    background: #ffffff;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+  }
+
+  .cv {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 48px;
+  }
+
+  h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 0 4px 0;
+  }
+
+  .cargo {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+  }
+
+  .contato {
+    font-size: 14px;
+    margin: 0 0 20px 0;
+  }
+
+  .contato p {
+    margin: 0 0 2px 0;
+  }
+
+  h2 {
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 3px;
+    margin: 22px 0 10px 0;
+  }
+
+  h3 {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 14px 0 2px 0;
+  }
+
+  p {
+    margin: 0 0 8px 0;
+  }
+
+  .meta {
+    font-weight: bold;
+    margin: 0 0 4px 0;
+  }
+
+  ul {
+    margin: 0 0 10px 0;
+    padding-left: 20px;
+  }
+
+  li {
+    margin-bottom: 4px;
+  }
+
+  .job, .project, .edu-entry {
+    margin-bottom: 14px;
+  }
+
+  .job:last-child, .project:last-child, .edu-entry:last-child {
+    margin-bottom: 0;
+  }
+
+  .tech-line {
+    margin: 0 0 8px 0;
+  }
+
+  .tech-line strong {
+    font-weight: bold;
+  }
+
+  #btn-pdf {
+    position: fixed; bottom: 24px; right: 24px;
+    background: #374151; color: #fff; border: none;
+    padding: 10px 18px;
+    font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: 600;
+    border-radius: 5px; cursor: pointer;
+    box-shadow: 0 4px 18px rgba(0,0,0,.3);
+    display: flex; align-items: center; gap: 7px;
+    z-index: 999; transition: background .15s;
+  }
+  #btn-pdf:hover { background: #374151; }
+
+  @media print {
+    @page {
+      size: A4;
+      margin: 10mm 14mm;
+    }
+    #btn-pdf { display: none !important; }
+
+    body { font-size: 11px; line-height: 1.35; }
+    .cv { max-width: 100%; padding: 0; margin: 0; }
+
+    h1 { font-size: 19px; margin-bottom: 2px; }
+    .cargo { font-size: 13px; margin-bottom: 6px; }
+    .contato { font-size: 11px; margin-bottom: 10px; }
+    .contato p { margin-bottom: 1px; }
+
+    h2 { font-size: 12.5px; margin: 10px 0 5px 0; padding-bottom: 2px; border-bottom-width: 1.5px; }
+    h3 { font-size: 11.5px; margin: 6px 0 1px 0; }
+
+    p { margin-bottom: 4px; }
+    .meta { margin-bottom: 2px; }
+    ul { margin-bottom: 5px; padding-left: 16px; }
+    li { margin-bottom: 1px; }
+
+    .job, .project, .edu-entry { margin-bottom: 6px; }
+    .tech-line { margin-bottom: 4px; }
+
+    h2 { break-after: avoid; }
+    h3 { break-after: avoid; }
+    .job, .project, .edu-entry { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<button id="btn-pdf" onclick="window.print()">
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+    <polyline points="7 10 12 15 17 10"/>
+    <line x1="12" y1="15" x2="12" y2="3"/>
+  </svg>
+  Baixar PDF
+</button>
+
+<div class="cv">
+
+  <h1>Pedro Gabriel Castor dos Santos</h1>
+  <div class="cargo">Desenvolvedor Full-Stack</div>
+
+  <div class="contato">
+    <p>E-mail: pedrogabrielcastor@gmail.com</p>
+    <p>Telefone: (85) 9 9249-5585</p>
+    <p>LinkedIn: linkedin.com/in/pedrogabrielpg</p>
+    <p>GitHub: github.com/PedroDevOps01</p>
+    <p>Localização: Fortaleza — CE</p>
+  </div>
+
+  <h2>Resumo Profissional</h2>
+  <p>Desenvolvedor Full-Stack com experiência no desenvolvimento de aplicações web, mobile e APIs para o setor HealthTech e plataformas de benefícios. Atuo com React, React Native, Laravel e TypeScript, desenvolvendo integrações com meios de pagamento, Inteligência Artificial, autenticação, emissão fiscal e serviços em nuvem, além da publicação de aplicativos na Google Play e App Store.</p>
+
+  <h2>Experiência Profissional</h2>
+
+  <div class="job">
+    <h3>Programador Júnior</h3>
+    <p class="meta">Gees HealthTech Soluções em Gestão Ltda — Fortaleza, CE | Janeiro de 2025 — Atual</p>
+    <ul>
+      <li>Desenvolvimento e manutenção de aplicações web, mobile e backend em ambiente de produção para clínicas, hospitais e plataformas de benefícios.</li>
+      <li>Implementação de integrações com Pagar.me (PIX, boleto, cartão e split de recebíveis), Banco Inter (extratos e conciliação bancária), ZapSign, Receita Federal, Google Gemini, Firebase e AWS.</li>
+      <li>Desenvolvimento de funcionalidades para telemedicina e TelePet, incluindo autenticação facial com AWS Rekognition, armazenamento de documentos no AWS S3 e chatbot integrado ao WhatsApp.</li>
+      <li>Desenvolvimento de módulos de emissão de NF-e/NFS-e (São Paulo e Fortaleza), autenticação social com Google e Apple ID e suporte a certificados digitais A1 (.pfx).</li>
+      <li>Manutenção de banco de dados PostgreSQL em produção, geração de documentos em PDF (DomPDF/mPDF) e publicação/manutenção de aplicativos na Google Play e App Store.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <h3>Estagiário — Desenvolvedor Full-Stack</h3>
+    <p class="meta">Gees HealthTech Soluções em Gestão Ltda — Fortaleza, CE | Agosto de 2024 — Dezembro de 2024</p>
+    <ul>
+      <li>Desenvolvimento de funcionalidades, correção de bugs e manutenção de sistemas web e mobile no setor de saúde.</li>
+      <li>Participação no desenvolvimento de aplicações React Native e integrações com bancos de dados e ferramentas externas.</li>
+    </ul>
+  </div>
+
+  <h2>Projetos de Destaque</h2>
+
+  <div class="project">
+    <h3>Plataforma de Fidelidade — Cartão de Benefícios</h3>
+    <p class="meta">Tipo de participação: Desenvolvimento e Manutenção</p>
+    <p>Plataforma white-label para gestão de benefícios, com backend API REST, aplicativo mobile e painel administrativo, incluindo módulos B2B, rede credenciada, contratos digitais, telemedicina e marketplace de parceiros.</p>
+    <p><strong>Tecnologias:</strong> Laravel 10, PHP 8.1, React Native 0.81, React 18, TypeScript, PostgreSQL, Redis, Pagar.me, ZapSign, AWS Rekognition, AWS S3, Firebase, Medicar (Telemedicina + TelePet), GEES (Telemedicina + TelePet), WhatsApp Chatbot, Receita Federal.</p>
+  </div>
+
+  <div class="project">
+    <h3>NFePocket — Emissão de NF-e para Profissionais</h3>
+    <p class="meta">Tipo de participação: Desenvolvimento e Manutenção</p>
+    <p>App mobile com fluxo de 4 etapas para emissão de NF-e/NFS-e, autenticação social (Google/Apple), programa de indicações, planos de assinatura e certificado A1 (.pfx).</p>
+    <p><strong>Tecnologias:</strong> React Native 0.81, Expo 54, TypeScript, Pagar.me, NFS-e (São Paulo/Fortaleza), Google Sign-In, Apple ID, Firebase, Receita Federal, Certificado A1 (.pfx).</p>
+  </div>
+
+  <div class="project">
+    <h3>App Profissional Gees — App do Médico</h3>
+    <p class="meta">Tipo de participação: Desenvolvimento e Manutenção</p>
+    <p>App mobile para profissionais de saúde: prontuário eletrônico multi-abas, módulo de oftalmologia, fila de pacientes em tempo real, agendamento e relatório de produção.</p>
+    <p><strong>Tecnologias:</strong> React Native 0.81, Expo 54, TypeScript, Biometria (Face ID/Touch ID), ViaCEP, Prontuário Eletrônico, Módulo Oftalmologia, Expo SecureStore.</p>
+  </div>
+
+  <div class="project">
+    <h3>Clinicas Gees — Gestão Hospitalar</h3>
+    <p class="meta">Tipo de participação: Desenvolvimento e Manutenção</p>
+    <p>Sistema web hospitalar (ambulatório, farmácia, financeiro). Atuação no desenvolvimento e manutenção do sistema hospitalar, implementando a conciliação bancária via Banco Inter e integração com Google Gemini para geração automática de anamneses médicas.</p>
+    <p><strong>Tecnologias:</strong> CodeIgniter 2, HTML, CSS, PHP, PostgreSQL, Bootstrap 4/5, jQuery, Banco Inter, Google Gemini, Pagar.me, WhatsApp API, mPDF.</p>
+  </div>
+
+  <h2>Projetos Pessoais</h2>
+
+  <div class="project">
+    <h3>Ministério dos Acólitos — Sistema de Escala Litúrgica</h3>
+    <p class="meta">Tipo de participação: Projeto Pessoal — Full-Stack</p>
+    <p>Sistema web para gestão de ministério de acólitos: escalas automáticas com sugestão inteligente por disponibilidade, presença via QR Code, importação de agenda por Inteligência Artificial (foto/PDF) e chatbot de consultas.</p>
+    <p><strong>Tecnologias:</strong> Laravel 13, PHP 8.3, React 19, TypeScript, Vite, PostgreSQL 16, Google Gemini, Evolution API (WhatsApp), DomPDF, @dnd-kit, QR Code.</p>
+  </div>
+
+  <div class="project">
+    <h3>Hope — Catálogo de Presentes Personalizados</h3>
+    <p class="meta">Tipo de participação: Projeto Pessoal — Full-Stack</p>
+    <p>Catálogo web de presentes e artes personalizadas (kits e caixinhas), com carrinho, pedidos e solicitações sob encomenda finalizados via WhatsApp, e painel admin com dashboard e relatórios.</p>
+    <p><strong>Tecnologias:</strong> Laravel 13, PHP 8.3, React 19, TypeScript, Sanctum, WhatsApp, Upload de Imagens, Relatórios.</p>
+  </div>
+
+  <div class="project">
+    <h3>Boutique Lene Castor — E-commerce de Moda</h3>
+    <p class="meta">Tipo de participação: Projeto Pessoal — Full-Stack</p>
+    <p>E-commerce de moda feminina com guia de medidas 3D interativo (manequim paramétrico), cálculo de frete e pagamentos integrados, painel admin completo e emissão de NFS-e.</p>
+    <p><strong>Tecnologias:</strong> Laravel 12, PHP 8.4, React 19, Zustand, Three.js, PostgreSQL, Redis, Pagar.me v5, Melhor Envio, ViaCEP, NFS-e (ABRASF/GINFES), JWT.</p>
+  </div>
+
+  <h2>Competências Técnicas</h2>
+  <p>Trabalho em equipe, Proatividade, Aprendizado contínuo, Pensamento crítico, Resolução de problemas, Flexibilidade.</p>
+
+  <h2>Tecnologias</h2>
+
+  <p class="tech-line"><strong>Linguagens:</strong> PHP, JavaScript, TypeScript, SQL, HTML5, CSS3.</p>
+
+  <p class="tech-line"><strong>Frameworks e Bibliotecas:</strong> Laravel 10, Laravel 11, Laravel 12, Laravel 13, React 18, React 19, React Native 0.81, Expo 54, CodeIgniter 2, Tailwind CSS, Radix UI, Zustand, Three.js, React Hook Form, Zod.</p>
+
+  <p class="tech-line"><strong>Banco de Dados:</strong> PostgreSQL, Redis, MySQL, Eloquent ORM.</p>
+
+  <p class="tech-line"><strong>Cloud e Inteligência Artificial:</strong> AWS S3, AWS Rekognition, Google Gemini, Firebase FCM, Google Cloud API, Firestore.</p>
+
+  <p class="tech-line"><strong>Integrações:</strong> Pagar.me, Banco Inter, NF-e, NFS-e, Medicar, GEES Telemedicina, Melhor Envio, ViaCEP, ZapSign, WhatsApp, Evolution API, Receita Federal CNPJ, Google Sign-In, Apple ID, mPDF, DomPDF.</p>
+
+  <p class="tech-line"><strong>Ferramentas:</strong> Git, Visual Studio Code, Android Studio, Xcode, DBeaver, Vite, JWT, Axios.</p>
+
+  <h2>Formação</h2>
+
+  <div class="edu-entry">
+    <h3>Engenharia de Software</h3>
+    <p>Unifanor Wyden — Fortaleza, CE | 2025 – 2028 | Cursando</p>
+  </div>
+
+  <div class="edu-entry">
+    <h3>Técnico em Desenvolvimento de Sistemas</h3>
+    <p>EEEP Marly Ferreira Martins | 2022 – 2024 | Concluído</p>
+  </div>
+
+  <h2>Certificações</h2>
+  <ul>
+    <li>AWS Academy — Cloud Foundations</li>
+    <li>Google — UX Design</li>
+    <li>Rocketseat — Java / Spring Boot</li>
+    <li>UFC PET COMP — Lógica de Programação</li>
+  </ul>
+
+  <h2>Idiomas</h2>
+  <p>Português — Nativo</p>
+  <p>Inglês — Técnico (documentação e código)</p>
+
+</div>
+
+<script>
+  document.getElementById('btn-pdf').addEventListener('click', function () {
+    window.print();
+  });
+</script>
+</body>
+</html>
