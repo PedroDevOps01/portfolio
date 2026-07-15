@@ -21,6 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <style>
     :root { --t: 0.3s cubic-bezier(0.4,0,0.2,1); }
 
@@ -192,13 +193,13 @@
     .skill-cat:hover{border-color:var(--border);box-shadow:var(--shadow-sm)}
     .cat-header{display:flex;align-items:center;gap:10px;margin-bottom:16px}
     .cat-icon{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px}
-    .ci-purple{background:rgba(139,92,246,.12)}
-    .ci-cyan{background:rgba(6,182,212,.12)}
-    .ci-green{background:rgba(16,185,129,.12)}
-    .ci-orange{background:rgba(249,115,22,.12)}
-    .ci-pink{background:rgba(236,72,153,.12)}
-    .ci-blue{background:rgba(59,130,246,.12)}
-    .ci-teal{background:rgba(20,184,166,.12)}
+    .ci-purple{background:rgba(139,92,246,.12);color:#8b5cf6}
+    .ci-cyan{background:rgba(6,182,212,.12);color:#06b6d4}
+    .ci-green{background:rgba(16,185,129,.12);color:#10b981}
+    .ci-orange{background:rgba(249,115,22,.12);color:#f97316}
+    .ci-pink{background:rgba(236,72,153,.12);color:#ec4899}
+    .ci-blue{background:rgba(59,130,246,.12);color:#3b82f6}
+    .ci-teal{background:rgba(20,184,166,.12);color:#14b8a6}
     .cat-name{font-size:13px;font-weight:800;color:var(--text);text-transform:uppercase;letter-spacing:.6px}
     .skill-tags{display:flex;flex-wrap:wrap;gap:7px}
     .stag{padding:4px 11px;background:var(--tag-bg);border:1px solid var(--tag-border);border-radius:6px;font-size:12px;font-weight:500;color:var(--tag-color);transition:all var(--t);font-family:'JetBrains Mono',monospace;cursor:default}
@@ -210,8 +211,14 @@
     .pcard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2),var(--accent3));transform:scaleX(0);transform-origin:left;transition:transform .4s ease}
     .pcard:hover{border-color:var(--border);transform:translateY(-6px);box-shadow:var(--shadow)}
     .pcard:hover::before{transform:scaleX(1)}
+    .pcard-shots{position:relative;height:220px;margin:-30px -30px 20px -30px;background:var(--surface2);overflow:hidden}
+    .pcard-shots img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;display:block;opacity:0;transition:opacity .6s ease}
+    .pcard-shots img.active{opacity:1}
+    .shots-dots{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:2}
+    .shots-dots .dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.45);border:none;padding:0;cursor:pointer;transition:all .25s ease}
+    .shots-dots .dot.active{background:#fff;width:18px;border-radius:3px}
     .pcard-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:14px}
-    .pcard-icon{width:46px;height:46px;border-radius:12px;background:var(--tag-bg);border:1px solid var(--tag-border);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+    .pcard-icon{width:46px;height:46px;border-radius:12px;background:var(--tag-bg);border:1px solid var(--tag-border);display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--accent);flex-shrink:0}
     .badge{padding:4px 11px;border-radius:100px;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap}
     .badge-green{background:rgba(16,185,129,.1);color:var(--accent3);border:1px solid rgba(16,185,129,.2)}
     .badge-cyan{background:rgba(6,182,212,.1);color:var(--accent2);border:1px solid rgba(6,182,212,.2)}
@@ -263,7 +270,7 @@
     .cert-list{display:flex;flex-direction:column;gap:9px}
     .cert-item{display:flex;align-items:center;gap:12px;padding:13px 15px;background:var(--surface);border:1px solid var(--border2);border-radius:12px;transition:all var(--t)}
     .cert-item:hover{border-color:var(--accent);transform:translateX(4px)}
-    .cert-ico{width:30px;height:30px;border-radius:7px;background:var(--tag-bg);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+    .cert-ico{width:30px;height:30px;border-radius:7px;background:var(--tag-bg);display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--accent);flex-shrink:0}
     .cert-name{font-size:12.5px;font-weight:600;color:var(--text2)}
     .cert-issuer{font-size:11px;color:var(--muted);margin-top:2px}
 
@@ -278,7 +285,7 @@
     .clink-label{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin-bottom:2px}
     .clink-val{font-size:13.5px;font-weight:600;color:var(--text)}
     .contact-cta{background:var(--surface);border:1px solid var(--border2);border-radius:24px;padding:40px;text-align:center}
-    .contact-cta .emoji{font-size:52px;margin-bottom:16px;display:block}
+    .contact-cta .emoji{font-size:52px;margin-bottom:16px;display:block;color:var(--accent)}
     .contact-cta h3{font-size:24px;font-weight:800;color:var(--text);margin-bottom:10px}
     .contact-cta p{font-size:15px;color:var(--muted);margin-bottom:26px;line-height:1.7}
 
@@ -410,13 +417,12 @@
     </div>
     <div class="hero-socials" style="margin-bottom:30px">
       <a href="https://www.linkedin.com/in/pedrogabrielpg" target="_blank" class="social-link" title="LinkedIn">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.
-
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
       </a>
       <a href="mailto:pedrogabrielcastor@gmail.com" class="social-link" title="Email">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       </a>
-      <a href="https://wa.me/5585992495585" target="_blank" class="social-link" title="WhatsApp">
+      <a href="https://wa.me/5585992493585" target="_blank" class="social-link" title="WhatsApp">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       </a>
       <a href="https://github.com/PedroDevOps01" target="_blank" class="social-link" title="GitHub">
@@ -489,43 +495,43 @@
     </div>
     <div class="skills-grid">
       <div class="skill-cat reveal">
-        <div class="cat-header"><div class="cat-icon ci-purple">🗄️</div><span class="cat-name" data-i18n="cat.backend">Backend</span></div>
+        <div class="cat-header"><div class="cat-icon ci-purple"><i class="fa-solid fa-server"></i></div><span class="cat-name" data-i18n="cat.backend">Backend</span></div>
         <div class="skill-tags">
           <span class="stag">PHP</span><span class="stag">Laravel 10-13</span><span class="stag">CodeIgniter 2</span><span class="stag">REST API</span><span class="stag">JWT</span><span class="stag">Sanctum</span><span class="stag">Eloquent ORM</span><span class="stag">Redis</span>
         </div>
       </div>
       <div class="skill-cat reveal">
-        <div class="cat-header"><div class="cat-icon ci-cyan">🌐</div><span class="cat-name" data-i18n="cat.frontend">Frontend</span></div>
+        <div class="cat-header"><div class="cat-icon ci-cyan"><i class="fa-solid fa-globe"></i></div><span class="cat-name" data-i18n="cat.frontend">Frontend</span></div>
         <div class="skill-tags">
           <span class="stag">React 18/19</span><span class="stag">TypeScript</span><span class="stag">HTML5</span><span class="stag">CSS3</span><span class="stag">Tailwind CSS</span><span class="stag">Radix UI</span><span class="stag">Zustand</span><span class="stag">Three.js</span><span class="stag">React Hook Form</span><span class="stag">Zod</span><span class="stag">Vite</span><span class="stag">Axios</span>
         </div>
       </div>
       <div class="skill-cat reveal">
-        <div class="cat-header"><div class="cat-icon ci-green">📱</div><span class="cat-name" data-i18n="cat.mobile">Mobile</span></div>
+        <div class="cat-header"><div class="cat-icon ci-green"><i class="fa-solid fa-mobile-screen-button"></i></div><span class="cat-name" data-i18n="cat.mobile">Mobile</span></div>
         <div class="skill-tags">
           <span class="stag">React Native 0.81</span><span class="stag">Expo 54</span><span class="stag">TypeScript</span><span class="stag">Expo Router</span><span class="stag">SecureStore</span><span class="stag">AsyncStorage</span><span class="stag">Google Play</span><span class="stag">App Store</span>
         </div>
       </div>
       <div class="skill-cat reveal">
-        <div class="cat-header"><div class="cat-icon ci-orange">🗃️</div><span class="cat-name" data-i18n="cat.database">Banco de Dados</span></div>
+        <div class="cat-header"><div class="cat-icon ci-orange"><i class="fa-solid fa-database"></i></div><span class="cat-name" data-i18n="cat.database">Banco de Dados</span></div>
         <div class="skill-tags">
           <span class="stag">PostgreSQL</span><span class="stag">MySQL</span><span class="stag">Redis</span><span class="stag">SQL</span><span class="stag">Migrations</span><span class="stag">DBeaver</span>
         </div>
       </div>
       <div class="skill-cat reveal">
-        <div class="cat-header"><div class="cat-icon ci-pink">☁️</div><span class="cat-name" data-i18n="cat.cloud">Cloud &amp; IA</span></div>
+        <div class="cat-header"><div class="cat-icon ci-pink"><i class="fa-solid fa-cloud"></i></div><span class="cat-name" data-i18n="cat.cloud">Cloud &amp; IA</span></div>
         <div class="skill-tags">
           <span class="stag">AWS S3</span><span class="stag">AWS Rekognition</span><span class="stag">Firebase FCM</span><span class="stag">Firestore</span><span class="stag">Google Gemini</span><span class="stag">Google Cloud API</span>
         </div>
       </div>
       <div class="skill-cat reveal">
-        <div class="cat-header"><div class="cat-icon ci-blue">🔌</div><span class="cat-name" data-i18n="cat.integrations">Integrações</span></div>
+        <div class="cat-header"><div class="cat-icon ci-blue"><i class="fa-solid fa-plug"></i></div><span class="cat-name" data-i18n="cat.integrations">Integrações</span></div>
         <div class="skill-tags">
           <span class="stag">PagarMe</span><span class="stag">Banco Inter</span><span class="stag">ZapSign</span><span class="stag">NF-e / NFS-e</span><span class="stag">Socket.IO</span><span class="stag">WebRTC</span><span class="stag">WhatsApp API</span><span class="stag">Evolution API</span><span class="stag">Melhor Envio</span><span class="stag">ViaCEP</span><span class="stag">Receita Federal CNPJ</span><span class="stag">Google Sign-In</span><span class="stag">Apple ID</span><span class="stag">Cert A1 .pfx</span><span class="stag">mPDF / DomPDF</span>
         </div>
       </div>
       <div class="skill-cat reveal">
-        <div class="cat-header"><div class="cat-icon ci-teal">🛠️</div><span class="cat-name" data-i18n="cat.tools">Ferramentas</span></div>
+        <div class="cat-header"><div class="cat-icon ci-teal"><i class="fa-solid fa-screwdriver-wrench"></i></div><span class="cat-name" data-i18n="cat.tools">Ferramentas</span></div>
         <div class="skill-tags">
           <span class="stag">Git</span><span class="stag">VS Code</span><span class="stag">Android Studio</span><span class="stag">Xcode</span><span class="stag">DBeaver</span>
         </div>
@@ -546,7 +552,7 @@
 
       <div class="pcard reveal">
         <div class="pcard-head">
-          <div class="pcard-icon">💳</div>
+          <div class="pcard-icon"><i class="fa-solid fa-credit-card"></i></div>
           <span class="badge badge-green" data-i18n="p1.badge">Desenvolvimento &amp; Manutenção</span>
         </div>
         <div class="pcard-name" data-i18n="p1.name">Plataforma Fidelidade</div>
@@ -572,7 +578,7 @@
 
       <div class="pcard reveal">
         <div class="pcard-head">
-          <div class="pcard-icon">🧾</div>
+          <div class="pcard-icon"><i class="fa-solid fa-receipt"></i></div>
           <span class="badge badge-green" data-i18n="p2.badge">Desenvolvimento &amp; Manutenção</span>
         </div>
         <div class="pcard-name" data-i18n="p2.name">NFePocket</div>
@@ -597,7 +603,7 @@
 
       <div class="pcard reveal">
         <div class="pcard-head">
-          <div class="pcard-icon">👨‍⚕️</div>
+          <div class="pcard-icon"><i class="fa-solid fa-user-doctor"></i></div>
           <span class="badge badge-cyan" data-i18n="p3.badge">Participação</span>
         </div>
         <div class="pcard-name" data-i18n="p3.name">App Profissional Gees</div>
@@ -621,7 +627,7 @@
 
       <div class="pcard reveal">
         <div class="pcard-head">
-          <div class="pcard-icon">🏥</div>
+          <div class="pcard-icon"><i class="fa-solid fa-hospital"></i></div>
           <span class="badge badge-cyan" data-i18n="p4.badge">Integrações: Banco Inter + IA Gemini</span>
         </div>
         <div class="pcard-name" data-i18n="p4.name">Clinicas Gees</div>
@@ -644,8 +650,13 @@
       </div>
 
       <div class="pcard reveal">
+        <div class="pcard-shots">
+          <img src="images/ministerio1.jpg" alt="Tela de login do sistema Ministério dos Acólitos" loading="lazy" class="active">
+          <img src="images/ministerio2.jpg" alt="Dashboard de gestão do Ministério dos Acólitos" loading="lazy">
+          <div class="shots-dots"><button class="dot active" aria-label="Imagem 1"></button><button class="dot" aria-label="Imagem 2"></button></div>
+        </div>
         <div class="pcard-head">
-          <div class="pcard-icon">⛪</div>
+          <div class="pcard-icon"><i class="fa-solid fa-church"></i></div>
           <span class="badge badge-purple" data-i18n="p5.badge">Projeto Pessoal</span>
         </div>
         <div class="pcard-name" data-i18n="p5.name">Ministério dos Acólitos</div>
@@ -669,8 +680,13 @@
       </div>
 
       <div class="pcard reveal">
+        <div class="pcard-shots">
+          <img src="images/hope1.jpg" alt="Tela de login do painel administrativo do Hope" loading="lazy" class="active">
+          <img src="images/hope2.jpg" alt="Página inicial do catálogo Hope" loading="lazy">
+          <div class="shots-dots"><button class="dot active" aria-label="Imagem 1"></button><button class="dot" aria-label="Imagem 2"></button></div>
+        </div>
         <div class="pcard-head">
-          <div class="pcard-icon">🎁</div>
+          <div class="pcard-icon"><i class="fa-solid fa-gift"></i></div>
           <span class="badge badge-purple" data-i18n="p6.badge">Projeto Pessoal</span>
         </div>
         <div class="pcard-name" data-i18n="p6.name">Hope</div>
@@ -693,8 +709,13 @@
       </div>
 
       <div class="pcard reveal">
+        <div class="pcard-shots">
+          <img src="images/loja1.jpg" alt="Tela de login da Boutique Lene Castor" loading="lazy" class="active">
+          <img src="images/loja2.jpg" alt="Página inicial da loja Boutique Lene Castor" loading="lazy">
+          <div class="shots-dots"><button class="dot active" aria-label="Imagem 1"></button><button class="dot" aria-label="Imagem 2"></button></div>
+        </div>
         <div class="pcard-head">
-          <div class="pcard-icon">👗</div>
+          <div class="pcard-icon"><i class="fa-solid fa-person-dress"></i></div>
           <span class="badge badge-purple" data-i18n="p7.badge">Projeto Pessoal</span>
         </div>
         <div class="pcard-name" data-i18n="p7.name">Boutique Lene Castor</div>
@@ -738,7 +759,7 @@
           <span data-i18n="exp1.period">Jan 2025 — Atual</span>
         </div>
         <div class="ttitle" data-i18n="exp1.title">Programador Júnior</div>
-        <div class="tcompany">Gees HealthTech Soluções em Gestão Ltda <span class="tloc">📍 Fortaleza, CE</span></div>
+        <div class="tcompany">Gees HealthTech Soluções em Gestão Ltda <span class="tloc"><i class="fa-solid fa-location-dot"></i> Fortaleza, CE</span></div>
         <ul class="tbullets" data-i18n="exp1.bullets">
           <li>Desenvolvimento de sistemas web, mobile e backend para gestão de clínicas, hospitais e plataformas de benefícios.</li>
           <li>PagarMe com split de recebíveis, PIX, boleto e cartão tokenizado; assinatura digital com ZapSign.</li>
@@ -760,7 +781,7 @@
           <span data-i18n="exp2.period">Ago 2024 — Dez 2024</span>
         </div>
         <div class="ttitle" data-i18n="exp2.title">Estagiário — Desenvolvedor Full-Stack</div>
-        <div class="tcompany">Gees HealthTech Soluções em Gestão Ltda <span class="tloc">📍 Fortaleza, CE</span></div>
+        <div class="tcompany">Gees HealthTech Soluções em Gestão Ltda <span class="tloc"><i class="fa-solid fa-location-dot"></i> Fortaleza, CE</span></div>
         <ul class="tbullets" data-i18n="exp2.bullets">
           <li>Desenvolvimento de funcionalidades para sistemas internos de gestão hospitalar.</li>
           <li>Integrações com bancos de dados e ferramentas externas.</li>
@@ -807,13 +828,13 @@
       <div class="reveal-right">
         <p class="edu-sub" data-i18n="edu.certs">Certificações</p>
         <div class="cert-list">
-          <div class="cert-item"><div class="cert-ico">☁️</div><div><div class="cert-name">Cloud Foundations</div><div class="cert-issuer">AWS Academy</div></div></div>
-          <div class="cert-item"><div class="cert-ico">🤖</div><div><div class="cert-name">HCIA-AI V3.5</div><div class="cert-issuer">Huawei</div></div></div>
-          <div class="cert-item"><div class="cert-ico">🖥️</div><div><div class="cert-name">HCIA Cloud Computing V4.0</div><div class="cert-issuer">Huawei</div></div></div>
-          <div class="cert-item"><div class="cert-ico">📡</div><div><div class="cert-name">HCIA 5G V2.0</div><div class="cert-issuer">Huawei</div></div></div>
-          <div class="cert-item"><div class="cert-ico">🎨</div><div><div class="cert-name">UX Design</div><div class="cert-issuer">Google</div></div></div>
-          <div class="cert-item"><div class="cert-ico">🚀</div><div><div class="cert-name">Java com Spring Boot / Full-Stack</div><div class="cert-issuer">Rocketseat</div></div></div>
-          <div class="cert-item"><div class="cert-ico">💡</div><div><div class="cert-name">Lógica de Programação e Dev de Soluções</div><div class="cert-issuer">UFC PET COMP</div></div></div>
+          <div class="cert-item"><div class="cert-ico"><i class="fa-solid fa-cloud"></i></div><div><div class="cert-name">Cloud Foundations</div><div class="cert-issuer">AWS Academy</div></div></div>
+          <div class="cert-item"><div class="cert-ico"><i class="fa-solid fa-robot"></i></div><div><div class="cert-name">HCIA-AI V3.5</div><div class="cert-issuer">Huawei</div></div></div>
+          <div class="cert-item"><div class="cert-ico"><i class="fa-solid fa-desktop"></i></div><div><div class="cert-name">HCIA Cloud Computing V4.0</div><div class="cert-issuer">Huawei</div></div></div>
+          <div class="cert-item"><div class="cert-ico"><i class="fa-solid fa-tower-broadcast"></i></div><div><div class="cert-name">HCIA 5G V2.0</div><div class="cert-issuer">Huawei</div></div></div>
+          <div class="cert-item"><div class="cert-ico"><i class="fa-solid fa-palette"></i></div><div><div class="cert-name">UX Design</div><div class="cert-issuer">Google</div></div></div>
+          <div class="cert-item"><div class="cert-ico"><i class="fa-solid fa-rocket"></i></div><div><div class="cert-name">Java com Spring Boot / Full-Stack</div><div class="cert-issuer">Rocketseat</div></div></div>
+          <div class="cert-item"><div class="cert-ico"><i class="fa-solid fa-lightbulb"></i></div><div><div class="cert-name">Lógica de Programação e Dev de Soluções</div><div class="cert-issuer">UFC PET COMP</div></div></div>
         </div>
       </div>
     </div>
@@ -833,7 +854,7 @@
             <div class="clink-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
             <div><div class="clink-label">Email <span style="font-size:9px;opacity:.5;font-weight:400;text-transform:none;letter-spacing:0" data-i18n="copy.hint">(clique para copiar)</span></div><div class="clink-val">pedrogabrielcastor@gmail.com</div></div>
           </a>
-          <a href="https://wa.me/5585992495585" target="_blank" class="clink">
+          <a href="https://wa.me/5585992493585" target="_blank" class="clink">
             <div class="clink-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
             <div><div class="clink-label">WhatsApp</div><div class="clink-val">(85) 9 9249-5585</div></div>
           </a>
@@ -848,7 +869,7 @@
         </div>
       </div>
       <div class="contact-cta reveal-right">
-        <span class="emoji">👋</span>
+        <span class="emoji"><i class="fa-solid fa-hand"></i></span>
         <h3 data-i18n="contact.cta.title">Pronto para colaborar</h3>
         <p data-i18n="contact.cta.desc">Seja um projeto novo, uma oportunidade de trabalho ou só bater um papo sobre tecnologia — estou disponível.</p>
         <a href="mailto:pedrogabrielcastor@gmail.com" class="btn-primary" style="display:inline-flex">
@@ -1068,12 +1089,12 @@
   // ── COPY EMAIL ──
   function copyEmail() {
     navigator.clipboard.writeText('pedrogabrielcastor@gmail.com').then(() => {
-      showToast(currentLang === 'pt' ? '✓ Email copiado!' : '✓ Email copied!');
+      showToast(currentLang === 'pt' ? '<i class="fa-solid fa-check"></i> Email copiado!' : '<i class="fa-solid fa-check"></i> Email copied!');
     });
   }
   function showToast(msg) {
     const t = document.getElementById('toast');
-    t.textContent = msg;
+    t.innerHTML = msg;
     t.classList.add('show');
     clearTimeout(t._tid);
     t._tid = setTimeout(() => t.classList.remove('show'), 2600);
@@ -1260,6 +1281,33 @@
       btn.innerHTML = `<span data-i18n="proj.hide">${i18n[currentLang]['proj.hide']}</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>`;
     }
   }
+
+  // ── PROJECT SHOT CAROUSELS ──
+  document.querySelectorAll('.pcard-shots').forEach(function (carousel) {
+    const imgs = carousel.querySelectorAll('img');
+    const dots = carousel.querySelectorAll('.dot');
+    if (imgs.length < 2) return;
+    let idx = 0;
+    let timer;
+    function show(next) {
+      imgs[idx].classList.remove('active');
+      dots[idx].classList.remove('active');
+      idx = next;
+      imgs[idx].classList.add('active');
+      dots[idx].classList.add('active');
+    }
+    function restart() {
+      clearInterval(timer);
+      timer = setInterval(() => show((idx + 1) % imgs.length), 3500);
+    }
+    dots.forEach((dot, i) => dot.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (i !== idx) show(i);
+      restart();
+    }));
+    restart();
+  });
 </script>
 </body>
 </html>
