@@ -26,6 +26,7 @@
   h1 {
     font-size: 24px;
     font-weight: bold;
+    color: #3a6ea5;
     margin: 0 0 4px 0;
   }
 
@@ -48,7 +49,8 @@
     font-size: 15px;
     font-weight: bold;
     text-transform: uppercase;
-    border-bottom: 2px solid #000000;
+    color: #3a6ea5;
+    border-bottom: 2px solid #3a6ea5;
     padding-bottom: 3px;
     margin: 22px 0 10px 0;
   }
@@ -108,28 +110,28 @@
   @media print {
     @page {
       size: A4;
-      margin: 10mm 14mm;
+      margin: 10mm 15mm;
     }
     #btn-pdf { display: none !important; }
 
-    body { font-size: 11px; line-height: 1.35; }
+    body { font-size: 10.5px; line-height: 1.35; }
     .cv { max-width: 100%; padding: 0; margin: 0; }
 
-    h1 { font-size: 19px; margin-bottom: 2px; }
-    .cargo { font-size: 13px; margin-bottom: 6px; }
-    .contato { font-size: 11px; margin-bottom: 10px; }
+    h1 { font-size: 19px; margin-bottom: 3px; }
+    .cargo { font-size: 13px; margin-bottom: 7px; }
+    .contato { font-size: 10.5px; margin-bottom: 12px; }
     .contato p { margin-bottom: 1px; }
 
-    h2 { font-size: 12.5px; margin: 10px 0 5px 0; padding-bottom: 2px; border-bottom-width: 1.5px; }
-    h3 { font-size: 11.5px; margin: 6px 0 1px 0; }
+    h2 { font-size: 12.5px; margin: 12px 0 6px 0; padding-bottom: 2px; border-bottom-width: 1.5px; }
+    h3 { font-size: 11.5px; margin: 7px 0 1px 0; }
 
-    p { margin-bottom: 4px; }
+    p { margin-bottom: 5px; }
     .meta { margin-bottom: 2px; }
-    ul { margin-bottom: 5px; padding-left: 16px; }
-    li { margin-bottom: 1px; }
+    ul { margin-bottom: 6px; padding-left: 17px; }
+    li { margin-bottom: 2px; }
 
-    .job, .project, .edu-entry { margin-bottom: 6px; }
-    .tech-line { margin-bottom: 4px; }
+    .job, .project, .edu-entry { margin-bottom: 7px; }
+    .tech-line { margin-bottom: 5px; }
 
     h2 { break-after: avoid; }
     h3 { break-after: avoid; }
@@ -284,6 +286,16 @@
 </div>
 
 <script>
+  var originalTitle = document.title;
+
+  window.addEventListener('beforeprint', function () {
+    document.title = '';
+  });
+
+  window.addEventListener('afterprint', function () {
+    document.title = originalTitle;
+  });
+
   document.getElementById('btn-pdf').addEventListener('click', function () {
     window.print();
   });
